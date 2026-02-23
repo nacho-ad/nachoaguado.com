@@ -1,0 +1,737 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>👨‍🍳 GTM Chef for your Startup</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3103bb62-1853-80dd-881f-d95d759d9b84" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1572552635104-daf938e0aa1f?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><h1 class="page-title" dir="auto">👨‍🍳 GTM Chef for your Startup</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="3103bb62-1853-813b-8299-dd665662311e" class="">Language: <a href="https://www.notion.so/GTM-Chef-para-tu-Startup-1f93bb621853812b81ddfbe5d9d0a096?pvs=21">Spanish</a></p></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-81cf-a1ef-ee52d254a0b8" class="column-list"><div style="display:contents" dir="auto"><div id="3103bb62-1853-8133-a658-cc5895db3375" style="width:50%" class="column"><div style="display:contents" dir="auto"><h3 id="3103bb62-1853-8110-a6b8-c21a06931127" class="">Growth that goes down easy, quick digestion, and leaves a great aftertaste</h3></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-8142-b5ec-d6151ebf926e" class="">Here’s your side-kick or fractional growth manager in your Startup’s kitchen. I support your growth so you can serve more customers.</p></div><div style="display:contents" dir="auto"><blockquote id="3103bb62-1853-8196-87e7-e141533f9c4a" class="">I help you find the fit, scale smart, and close sales that actually matter.<div style="display:contents" dir="auto"><p id="3103bb62-1853-8163-9162-f626e8c8454d" class="">No smoke, no kitchen fires, no consulting fluff. Just traction, cooked to perfection.</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-8162-8e34-ef992385ec21" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-811e-97f5-e61439a6f161" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-812e-8d85-c2f558c905a3" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="3103bb62-1853-8102-a36b-f7d685bcf5ae" class="image"><a href="%F0%9F%91%A8%E2%80%8D%F0%9F%8D%B3%20GTM%20Chef%20for%20your%20Startup/Foto_2024_circle.png"><img style="width:192px" src="%F0%9F%91%A8%E2%80%8D%F0%9F%8D%B3%20GTM%20Chef%20for%20your%20Startup/Foto_2024_circle.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-819f-928e-e899b4b2dd6c" class="">
+</p></div></div></div></div></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-81a0-be56-d483149194e1" class="column-list"><div style="display:contents" dir="auto"><div id="3103bb62-1853-815f-ab14-e400fda81afa" style="width:50%" class="column"><div style="display:contents" dir="auto"><figure id="3103bb62-1853-81a0-ac9c-d2ec872c0e11" class="equation"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>S</mi><mi>t</mi><mi>a</mi><mi>r</mi><mi>t</mi><mi>u</mi><mi>p</mi><mi>s</mi><mtext> </mtext><mi>t</mi><mi>h</mi><mi>a</mi><mi>t</mi><mtext> </mtext><mi>I</mi><mtext> </mtext><mi>h</mi><mi>a</mi><mi>v</mi><mi>e</mi><mtext> </mtext><mi>c</mi><mi>o</mi><mi>o</mi><mi>k</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>w</mi><mi>i</mi><mi>t</mi><mi>h</mi></mrow><annotation encoding="application/x-tex">Startups\ that\ I\ have\ cooked\ with</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">St</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">t</span><span class="mord mathnormal">u</span><span class="mord mathnormal">p</span><span class="mord mathnormal">s</span><span class="mspace"> </span><span class="mord mathnormal">t</span><span class="mord mathnormal">ha</span><span class="mord mathnormal">t</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace"> </span><span class="mord mathnormal">ha</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mspace"> </span><span class="mord mathnormal">coo</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span></span></span></span></span></div></figure></div></div></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-8193-87ba-e09e400d950e" style="width:50%" class="column"><div style="display:contents" dir="auto"><figure id="3103bb62-1853-8125-b8fe-ec9d289e326a" class="equation"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>A</mi><mi>c</mi><mi>c</mi><mi>e</mi><mi>l</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>s</mi><mtext> </mtext><mi>s</mi><mi>e</mi><mi>r</mi><mi>v</mi><mi>e</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">Accelerators\ served</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal">cce</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">ors</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.02778em;">ser</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span></span></span></span></span></div></figure></div></div></div></div></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-817b-ad2c-c51a4444ace3" class="column-list"><div style="display:contents" dir="auto"><div id="3103bb62-1853-8136-a854-da586abb5d09" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="3103bb62-1853-8167-a9bc-c22c202333d4" class="image"><a href="%F0%9F%91%A8%E2%80%8D%F0%9F%8D%B3%20GTM%20Chef%20for%20your%20Startup/Screenshot_2025-04-17_at_17.32.14.png"><img style="width:576px" src="%F0%9F%91%A8%E2%80%8D%F0%9F%8D%B3%20GTM%20Chef%20for%20your%20Startup/Screenshot_2025-04-17_at_17.32.14.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-818b-ab12-ece4c372ce0c" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="3103bb62-1853-8108-91b0-ce80f4d996da" class="image"><a href="%F0%9F%91%A8%E2%80%8D%F0%9F%8D%B3%20GTM%20Chef%20for%20your%20Startup/Screenshot_2025-04-17_at_17.33.46.png"><img style="width:480px" src="%F0%9F%91%A8%E2%80%8D%F0%9F%8D%B3%20GTM%20Chef%20for%20your%20Startup/Screenshot_2025-04-17_at_17.33.46.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-817e-bb1e-f5747edae83f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81c0-9ee7-f20d29ce4914" class="">
+</p></div><div style="display:contents" dir="auto"><figure id="3103bb62-1853-8168-8667-c37588d9c1bb" class="equation"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>F</mi><mi>u</mi><mi>n</mi><mtext> </mtext><mi>f</mi><mi>a</mi><mi>c</mi><mi>t</mi><mi>s</mi><mtext> </mtext><mi>a</mi><mi>b</mi><mi>o</mi><mi>u</mi><mi>t</mi><mtext> </mtext><mi>t</mi><mi>h</mi><mi>e</mi><mtext> </mtext><mi>c</mi><mi>h</mi><mi>e</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">Fun\ facts\ about\ the\ chef</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span><span class="mord mathnormal">t</span><span class="mord mathnormal">s</span><span class="mspace"> </span><span class="mord mathnormal">ab</span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span><span class="mspace"> </span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mspace"> </span><span class="mord mathnormal">c</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span></span></div></figure></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-813a-8558-e83da659632d" class="column-list"><div style="display:contents" dir="auto"><div id="3103bb62-1853-81e7-9438-dca09995169c" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="auto"><p id="3103bb62-1853-810f-8888-cb563cc0c169" class="">🧑‍🚀 2x Founder: HRTech and a media agency focused on ROI and direct response</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81af-884b-c48a0100b0a0" class="">🚀 0 to 65M € in 5 years, active in 50+ countries</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81ac-b464-c9dda6aa9cef" class="">🧠 Mentored 20+ startups</p></div></div></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-816b-8a3b-c90bb7f3d32f" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="auto"><p id="3103bb62-1853-817e-92d0-ef8bf5ba6726" class="">💸 Angel investor x5</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-8110-9126-fecb35b32d6d" class="">📗 Started college in the U.S. at 15</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-818f-9018-c53a6940ae6f" class="">🌏 Traveled to over 40 countries</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81fc-a429-eb09bb3c8314" class="">🙊 Speak ES, CA, EN, IT can have a conversation in FR, PT and mumble RU</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-813a-aeb5-ee0b01741a33" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-81c0-a982-c70cb4936728" style="width:33.33333333333333%" class="column"><div style="display:contents" dir="auto"><p id="3103bb62-1853-813c-89f1-e01652a0f8d4" class="">🌐 Master’s in Internet Business (ISDI)</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81e6-8818-d2244113290c" class="">📣 Master’s in Coaching</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-8156-b66b-f357fb299656" class="">🏄 Surf, yoga and muay thai</p></div></div></div></div></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-8100-8321-de6f1e34a541" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81c5-bb85-f1811eacf02d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-810e-ac53-e8814ff18ac1" class="">
+</p></div><div style="display:contents" dir="auto"><figure id="3103bb62-1853-81dc-a73c-fb38b34a90f0" class="equation"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>W</mi><mi>h</mi><mi>a</mi><mi>t</mi><mtext> </mtext><mi>c</mi><mi>a</mi><mi>n</mi><mtext> </mtext><mi>w</mi><mi>e</mi><mtext> </mtext><mi>c</mi><mi>o</mi><mi>o</mi><mi>k</mi><mtext> </mtext><mi>t</mi><mi>o</mi><mi>g</mi><mi>e</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>r</mi><mo stretchy="false">?</mo></mrow><annotation encoding="application/x-tex">What\ can\ we\ cook\ together?</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Wha</span><span class="mord mathnormal">t</span><span class="mspace"> </span><span class="mord mathnormal">c</span><span class="mord mathnormal">an</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">e</span><span class="mspace"> </span><span class="mord mathnormal">coo</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace"> </span><span class="mord mathnormal">t</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mclose">?</span></span></span></span></span></div></figure></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-81f8-98c3-ff33d656cbcf" class="column-list"><div style="display:contents" dir="auto"><div id="3103bb62-1853-816a-a67d-f5b86ba9847d" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="auto"><p id="3103bb62-1853-81a5-86b6-de14b28c24df" class=""><strong>🍼 Launch &amp; Discovery</strong></p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81ae-a10c-ee851608a9c4" class="">First, we understand your diner: what they want and hate, and why they’re still not choosing you.</p></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-8176-b613-cff8ab00cd6f" class="bulleted-list"><li style="list-style-type:disc">Validate your idea and truly understand your customer</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-810e-bd5f-f8eafbe30b55" class="bulleted-list"><li style="list-style-type:disc">Build an MVP and start generating revenue</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-81f3-8699-df522f753a9d" class="bulleted-list"><li style="list-style-type:disc">Find your first real customers</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-81aa-96db-f49c979378db" class="bulleted-list"><li style="list-style-type:disc">Improve how you present your product or service (storytelling included)</li></ul></div></div></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-81a1-8798-dbb44f0ad547" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="auto"><p id="3103bb62-1853-81ac-b900-d2ac9a33056a" class=""><strong>🧪 Growth &amp; Marketing</strong></p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81dd-832d-d052b6e87705" class="">We test, measure, refine… and grow without burning your most expensive ingredient: budget.</p></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-8145-902f-cb3183c72dc9" class="bulleted-list"><li style="list-style-type:disc">Define and sharpen your GTM strategy</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-8132-9a1e-e3b7f5d60599" class="bulleted-list"><li style="list-style-type:disc">Adopt a test-and-learn mindset</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-811b-9e0b-db8e8c6cb81c" class="bulleted-list"><li style="list-style-type:disc">Identify channels to grow from 10 to 100 customers</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-8131-824a-c3fcfc8a50a9" class="bulleted-list"><li style="list-style-type:disc">Target the right customers (not more, just the right ones)</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-81b6-9974-fa699dc2e302" class="bulleted-list"><li style="list-style-type:disc">Automate key processes for sustainable growth</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-81e8-b397-e1794e1fb2af" class="bulleted-list"><li style="list-style-type:disc">Tools &amp; AI tips to make your life easier</li></ul></div></div></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-81d4-9408-f0ff56e52fc9" style="width:33.33333333333333%" class="column"><div style="display:contents" dir="auto"><p id="3103bb62-1853-815b-8d4c-c7c07118543c" class="">🧳 <strong>Sales</strong></p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81b1-9ddf-f3de2bef546f" class="">Is your startup hungry for sales? Let’s serve results.</p></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-81bb-8889-f74fd651c2b4" class="bulleted-list"><li style="list-style-type:disc">Level up your sales playbook and blueprint</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-819f-ae30-cb870acc6f15" class="bulleted-list"><li style="list-style-type:disc">Sharpen your pitch, handle objections like a pro</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-81a5-b94e-dbd0d0cfbaad" class="bulleted-list"><li style="list-style-type:disc">Organize your sales stages and funnel</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-81d6-a757-c87bbb1a72f2" class="bulleted-list"><li style="list-style-type:disc">Close more demos and turn them into actual deals</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-8124-ba69-e171e1f93136" class="bulleted-list"><li style="list-style-type:disc">Fine-tune your messaging: value proposition (USP) and ideal customer (ICP)</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-815d-b709-c5916fbb76a6" class="bulleted-list"><li style="list-style-type:disc">Implement systems, automations, and sequences that help you close</li></ul></div></div></div></div></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-8146-a38b-dfb95879e283" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-817f-961f-cfdab51eee05" class="">
+</p></div><div style="display:contents" dir="auto"><figure id="3103bb62-1853-810f-9319-f6c43069689c" class="equation"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>H</mi><mi>o</mi><mi>w</mi><mtext> </mtext><mi>w</mi><mi>e</mi><mtext> </mtext><mi>c</mi><mi>o</mi><mi>o</mi><mi>k</mi><mtext> </mtext><mi>t</mi><mi>o</mi><mi>g</mi><mi>e</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">How\ we\ cook\ together</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Ho</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">e</span><span class="mspace"> </span><span class="mord mathnormal">coo</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace"> </span><span class="mord mathnormal">t</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span></span></span></span></span></div></figure></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81fe-9694-d2f46b18fd63" class=""><strong>1️⃣ Express Tasting (15 min)</strong></p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-814a-897d-ca14bfc1b70a" class="">We sit down (virtually), you walk me through your current recipe, your ingredients… and we see if there’s a match to cook together.</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-812c-8627-d0a4ac82eade" class=""><strong>2️⃣ Mise en place (Briefing)</strong></p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81be-9d7a-dce0a8033ed1" class="">I’ll send you a short briefing doc to get to know your startup inside out: market, customers, challenges, and what’s already in the pantry.</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-813e-9dd0-c9b6b2f17f8e" class=""><strong>3️⃣ Let’s get cooking!</strong></p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-815e-95a7-c60fa9277a26" class="">First working session: we co-create the plan, fine-tune the recipe, and define the next dishes to prep — strategy, channels, pitch… whatever needs heat.</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81bf-997e-ef613cb70ce0" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81c5-9ea8-e2cfc404282b" class="">
+</p></div><div style="display:contents" dir="auto"><figure id="3103bb62-1853-8106-a623-f04e1cbd39c8" class="equation"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>W</mi><mi>h</mi><mi>a</mi><mi>t</mi><mtext> </mtext><mi>k</mi><mi>i</mi><mi>n</mi><mi>d</mi><mtext> </mtext><mi>o</mi><mi>f</mi><mtext> </mtext><mi>d</mi><mi>i</mi><mi>n</mi><mi>e</mi><mi>r</mi><mtext> </mtext><mi>a</mi><mi>r</mi><mi>e</mi><mtext> </mtext><mi>y</mi><mi>o</mi><mi>u</mi><mo stretchy="false">?</mo></mrow><annotation encoding="application/x-tex">What\ kind\ of\ diner\ are\ you?</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Wha</span><span class="mord mathnormal">t</span><span class="mspace"> </span><span class="mord mathnormal">kin</span><span class="mord mathnormal">d</span><span class="mspace"> </span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace"> </span><span class="mord mathnormal">d</span><span class="mord mathnormal">in</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mspace"> </span><span class="mord mathnormal">a</span><span class="mord mathnormal">re</span><span class="mspace"> </span><span class="mord mathnormal">yo</span><span class="mord mathnormal">u</span><span class="mclose">?</span></span></span></span></span></div></figure></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-818b-9cff-f26cd147d842" class="column-list"><div style="display:contents" dir="auto"><div id="3103bb62-1853-81b4-b755-f4f0ecac8464" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="auto"><p id="3103bb62-1853-81aa-b93b-da80128e548a" class="">🐣 <strong>Early Stage</strong></p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-8174-ac70-e0ca3fe8c240" class="">You’re still looking for your spot on the market’s menu. You need to validate your recipe without blowing your entire budget — or burning the kitchen.</p></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-8144-98ce-fdfec108b088" class="bulleted-list"><li style="list-style-type:disc">Validate your value proposition and serve something people actually crave</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-8184-a55b-e699448dd8b5" class="bulleted-list"><li style="list-style-type:disc">Launch your first acquisition dishes with focus, flavor, and good presentation</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-8177-8319-ca8072e87481" class="bulleted-list"><li style="list-style-type:disc">Listen to the diner, test, adjust, and cook again before scaling poorly</li></ul></div></div></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-8104-a7b7-f2540c910098" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="auto"><p id="3103bb62-1853-814d-b0d9-f6ef75ca9ac7" class=""><strong>🚀 Scaleup</strong></p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81be-aeb1-ce77ca356625" class="">You’ve got traction. People are at the table. Now you need a more professional kitchen to scale without your restaurant falling apart.</p></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-81bd-98e1-fd4ffa42ebc6" class="bulleted-list"><li style="list-style-type:disc">Structure your marketing without turning it into an all-you-can-eat bureaucracy</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-8165-b5a4-c74477dd0aa7" class="bulleted-list"><li style="list-style-type:disc">Prioritize what matters: performance, brand, processes, team… depending on what needs cooking now</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-8102-b61d-dce88d533432" class="bulleted-list"><li style="list-style-type:disc">Stop throwing in random ingredients. Cook with intention, clear portions, and measurable results</li></ul></div></div></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-8171-b7a1-e685f1d575c4" style="width:33.33333333333333%" class="column"><div style="display:contents" dir="auto"><p id="3103bb62-1853-8186-b690-f416270e7ae4" class=""><strong>🧠 Venture Capital o Aceleradora</strong></p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81cd-8fe8-d2ad7b60bd2f" class="">Your portfolio doesn’t need more improvised chefs. It needs method, timing, and a menu that sells.</p></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-81f1-94c0-d1eb1b8f0021" class="bulleted-list"><li style="list-style-type:disc">Serve a clear strategy without hiring a full-time CMO or CSO too soon</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-81d5-812f-e8539de68ede" class="bulleted-list"><li style="list-style-type:disc">Speed up your startups’ go-to-market with proven recipes and an organized kitchen</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-8186-996e-eb415d2b10e1" class="bulleted-list"><li style="list-style-type:disc">Save time and money by helping your founders cook traction before scaling poorly</li></ul></div></div></div></div></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81ec-ac0a-ea824313eade" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-8178-be90-ccbf995d2092" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81d6-bd59-c02417cfbfde" class="">
+</p></div><div style="display:contents" dir="auto"><figure id="3103bb62-1853-8181-a240-e22ca8c9c68d" class="equation"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>T</mi><mi>h</mi><mi>e</mi><mi>y</mi><mtext>’</mtext><mi>v</mi><mi>e</mi><mtext> </mtext><mi>t</mi><mi>a</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>m</mi><mi>y</mi><mtext> </mtext><mi>d</mi><mi>i</mi><mi>s</mi><mi>h</mi><mi>e</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">They’ve\ tasted\ my\ dishes</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">h</span><span class="mord mathnormal" style="margin-right:0.03588em;">ey</span><span class="mord">’</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mspace"> </span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mspace"> </span><span class="mord mathnormal">m</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace"> </span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord mathnormal">h</span><span class="mord mathnormal">es</span></span></span></span></span></div></figure></div><div style="display:contents" dir="ltr"><div id="3103bb62-1853-8171-bfd4-c8c1a64dc097" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Company</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Title</th></tr></thead><tbody><tr id="3103bb62-1853-81ae-b08a-e8fd86c7272e"><td class="cell-title"><a href="%F0%9F%91%A8%E2%80%8D%F0%9F%8D%B3%20GTM%20Chef%20for%20your%20Startup/Untitled/Fabian%20Angrick%203103bb62185381aeb08ae8fd86c7272e.html">Fabian Angrick</a></td><td class="cell-e:^z">Trivago</td><td class="cell-?Zs|">Marketing</td></tr><tr id="3103bb62-1853-819d-86c7-f6f134f50ee8"><td class="cell-title"><a href="%F0%9F%91%A8%E2%80%8D%F0%9F%8D%B3%20GTM%20Chef%20for%20your%20Startup/Untitled/Matthieu%20Tissot%203103bb621853819d86c7f6f134f50ee8.html">Matthieu Tissot</a></td><td class="cell-e:^z">Ex-Delivery Hero</td><td class="cell-?Zs|">Director International Marketing</td></tr><tr id="3103bb62-1853-8132-a529-df4ad03145ea"><td class="cell-title"><a href="%F0%9F%91%A8%E2%80%8D%F0%9F%8D%B3%20GTM%20Chef%20for%20your%20Startup/Untitled/Rafa%20Calle%203103bb6218538132a529df4ad03145ea.html">Rafa Calle</a></td><td class="cell-e:^z">Magnettu</td><td class="cell-?Zs|">CEO &amp; Co-founder</td></tr><tr id="3103bb62-1853-81c3-aa26-f66e18752310"><td class="cell-title"><a href="%F0%9F%91%A8%E2%80%8D%F0%9F%8D%B3%20GTM%20Chef%20for%20your%20Startup/Untitled/Pol%20Amoedo%203103bb62185381c3aa26f66e18752310.html">Pol Amoedo</a></td><td class="cell-e:^z">Filmo</td><td class="cell-?Zs|">Co-Founder &amp; CEO</td></tr></tbody></table><br/><br/></div></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-8181-8d05-f21e4efc9497" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-8198-81c2-c6996b967a20" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81fb-859c-c19840aaa404" class="">
+</p></div><div style="display:contents" dir="auto"><figure id="3103bb62-1853-81f2-a958-d284018a02c3" class="equation"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>C</mi><mi>h</mi><mi>o</mi><mi>o</mi><mi>s</mi><mi>e</mi><mtext> </mtext><mi>y</mi><mi>o</mi><mi>u</mi><mi>r</mi><mtext> </mtext><mi>t</mi><mi>a</mi><mi>s</mi><mi>t</mi><mi>i</mi><mi>n</mi><mi>g</mi><mtext> </mtext><mi>m</mi><mi>e</mi><mi>n</mi><mi>u</mi></mrow><annotation encoding="application/x-tex">Choose\ your\ tasting\ menu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">h</span><span class="mord mathnormal">oose</span><span class="mspace"> </span><span class="mord mathnormal">yo</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace"> </span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">in</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace"> </span><span class="mord mathnormal">m</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">u</span></span></span></span></span></div></figure></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-814f-870c-ca038219b722" class="">Two ways to work together: a quick flame or a steady simmer</p></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-819f-8e32-cb657c5ae41d" class="column-list"><div style="display:contents" dir="auto"><div id="3103bb62-1853-81c0-95a3-e4c96b38491e" style="width:50%" class="column"><div style="display:contents" dir="auto"><h3 id="3103bb62-1853-810b-8280-c93377e3cf4c" class="">🔪 <strong>Hourly Pack: Quick-Start, No Friction</strong></h3></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81c9-869d-fcb5fb78c513" class="">🎯 <em>An intense tasting session to unlock what’s holding you back</em></p></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-81a9-ad8d-f025bc8944f2" class="bulleted-list"><li style="list-style-type:disc">Rapid kitchen diagnosis: what’s working and what’s not</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-81e4-a582-ca0c42f08765" class="bulleted-list"><li style="list-style-type:disc">Actionable recipes ready to serve (pitch, channels, funnel, or most urgent)</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-8176-8339-d809e924bbd0" class="bulleted-list"><li style="list-style-type:disc">Strategic direction on what to test, cut, or heat up right now</li></ul></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81fa-9795-df3d715e94ef" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-8106-a193-c72e4bfd5bfa" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81c9-9001-d9a1913a0296" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="3103bb62-1853-81ad-980a-c75574837924" style="width:50%" class="column"><div style="display:contents" dir="auto"><h3 id="3103bb62-1853-817e-a7f7-d60a806b7759" class="">🔥 <strong>Monthly Subscription: Mid- to Long-Term Cooking</strong></h3></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-813f-ab8c-f026260aa3c0" class="">👨‍🍳 <em>A chef in your kitchen — strategy, flavor, and hands-on guidance</em></p></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-8169-b9c5-ffb512073a53" class="bulleted-list"><li style="list-style-type:disc">Strategic direction: growth, GTM or sales plan tailored to your current stage</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-816c-8528-f10f18af851a" class="bulleted-list"><li style="list-style-type:disc">Weekly accompaniment: decisions, focus, and execution rhythm</li></ul></div><div style="display:contents" dir="auto"><ul id="3103bb62-1853-81c4-8a8d-d81b74831926" class="bulleted-list"><li style="list-style-type:disc">Heat-checks: what’s working, what needs adjusting, and what deserves fire!</li></ul></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81bb-a4fa-cae4d9fb8ef3" class="">
+</p></div></div></div></div></div><div style="display:contents" dir="auto"><hr id="3103bb62-1853-81a8-a7f4-c0b6fedc6acb"/></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-81e4-96ef-d7eab9a9c6ff" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3103bb62-1853-813a-b2f0-cdeaaf5b05b9" class="">Connect in <a href="http://linkedin.com/in/nachoaguado">Linkedin</a></p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
